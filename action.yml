@@ -22,6 +22,9 @@ runs:
   using: "node12"
   main: "bin/action.min.js"
 inputs:
+  config:
+    description: "The name of the firebase.json config file, if you wish to change it or you have multiple config files"
+    required: false
   repoToken:
     description: "The GITHUB_TOKEN secret"
     required: false
@@ -53,9 +56,6 @@ inputs:
       "The location of your firebase.json file, relative to the root of your
       directory"
     default: "."
-    required: false
-  config:
-    description: "The name of the firebase.json config file, if you wish to change it or you have multiple config files"
     required: false
 outputs:
   urls:
