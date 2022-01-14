@@ -45,6 +45,7 @@ export type DeployConfig = {
   expires: string;
   channelId: string;
   target?: string;
+  config?: string;
 };
 
 export type ProductionDeployConfig = {
@@ -120,7 +121,7 @@ export async function deployPreview(
   gacFilename: string,
   deployConfig: DeployConfig
 ) {
-  const { projectId, channelId, target, expires } = deployConfig;
+  const { projectId, channelId, target, expires, config } = deployConfig;
 
   const deploymentText = await execWithCredentials(
     [
@@ -128,6 +129,7 @@ export async function deployPreview(
       channelId,
       ...(target ? ["--only", target] : []),
       ...(expires ? ["--expires", expires] : []),
+      ...(config ? ["--config", config] : []),
     ],
     projectId,
     gacFilename
