@@ -54,6 +54,9 @@ inputs:
       directory"
     default: "."
     required: false
+  config:
+    description: "The name of the firebase.json config file, if you wish to change it or you have multiple config files"
+    required: false
 outputs:
   urls:
     description: The url(s) deployed to
